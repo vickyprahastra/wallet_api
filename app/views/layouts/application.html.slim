@@ -1,6 +1,14 @@
 html
   head
     = csrf_meta_tags
+    = render partial: "layouts/bootstrap_assets"
   body
-    = yield
-
+    .container.py-5
+      - if flash[:message]
+        div class="alert alert-#{flash[:type]}"
+          = flash[:message]
+      = yield
+javascript:
+  $(".alert").fadeTo(2000, 500).slideUp(500, function(){
+      $(".alert").slideUp(500);
+  });
