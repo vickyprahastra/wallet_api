@@ -22,10 +22,16 @@ Requirement
 4. copy master.key from master-example.key
 5. docker-compose up --detach
 6. docker-compose exec web rails db:setup
+7. docker-compose exec web rails db:seed
 
 ### How to test
 1. ~
 
 
 ### Documentation
-1. ~
+
+User login
+1. localhost:3000/login
+
+API User login
+1. localhost:3000/api/session [POST]
