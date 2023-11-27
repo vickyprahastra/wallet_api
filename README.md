@@ -34,8 +34,13 @@ Requirement
 ### API
 
 1. API user login
+
     - localhost:3000/api/session [POST]
-    - user[username] user1
-    - user[password] password
+
+| Keys            | Values         |
+| --------------- | -------------- |
+| user[username]  | user1          |
+| user[password]  | password       |
+
 2. API user logout
     - localhost:3000/api/session [DELETE]
