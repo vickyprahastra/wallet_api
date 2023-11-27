@@ -1,5 +1,6 @@
 module Api
   class ApiController < ActionController::Base
+    skip_before_action :verify_authenticity_token
     helper_method :logged_in?, :current_user
 
     def current_user
@@ -13,7 +14,7 @@ module Api
     end
 
     def authorized
-      render json: {message: "please login"} unless logged_in?
+      render json: {message: "Please login"} unless logged_in?
     end
 
     def warning_response(message)

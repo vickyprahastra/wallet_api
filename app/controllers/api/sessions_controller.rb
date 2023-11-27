@@ -1,17 +1,18 @@
 module Api
   class SessionsController < Api::ApiController
-    skip_before_action :verify_authenticity_token
+    before_action :authorized, only: [:new, :destroy]
 
     def new
-      render json: {message: "welcome"}
+      render json: {message: "welcome", balance: current_user.balance, username: current_user.username}
     end
 
     def create
       return warning_response("User doesn`t exist") unless user.present?
+
       return warning_response("Password is not match") unless user.authenticate(session_param[:password])
 
       session[:user_id] = user.id
-      render json: {message: "Successfully logged in"}
+      render json: {message: "Successfully logged in", balance: current_user.balance, username: current_user.username}
     end
 
     def destroy

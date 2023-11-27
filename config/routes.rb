@@ -9,5 +9,8 @@ Rails.application.routes.draw do
     get 'login',  to: 'sessions#new'
     delete 'logout', to: 'sessions#destroy'
     resource :session, only: [:create]
+
+    post 'transfer', to: 'transactions#transfer'
+    post 'withdraw', to: 'transactions#withdraw'
   end
 end

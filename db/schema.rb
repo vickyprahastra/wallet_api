@@ -10,11 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_11_25_074939) do
+ActiveRecord::Schema.define(version: 2023_11_27_030337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+
+  create_table "transactions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "user_id", null: false
+    t.decimal "amount"
+    t.integer "transaction_type"
+    t.uuid "transfer_from_id"
+    t.uuid "transfer_to_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["transfer_from_id"], name: "index_transactions_on_transfer_from_id"
+    t.index ["transfer_to_id"], name: "index_transactions_on_transfer_to_id"
+    t.index ["user_id"], name: "index_transactions_on_user_id"
+  end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
@@ -25,4 +38,5 @@ ActiveRecord::Schema.define(version: 2023_11_25_074939) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "transactions", "users"
 end
