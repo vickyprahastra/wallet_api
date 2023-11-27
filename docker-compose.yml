@@ -18,39 +18,12 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      # args:
-      #   - POSTGRES_USER=postgres
-      #   - POSTGRES_PASSWORD=postgres
-      #   - REDIS_URL_SIDEKIQ=redis://redis:6379/1
-      #   - REDIS_PASSWORD=ABC2511
     command: /bin/bash -c "bundle install && rm -f /tmp/server.pid && bundle exec rails server -e ${RAILS_ENV} -b 0.0.0.0 -P /tmp/server.pid"
     ports:
       - ${RAILS_PORT}:3000
     volumes:
       - .:/app
 
-  redis:
-    image: 'redis:5-alpine'
-    # restart: always
-    command: ["sh", "-c", "redis-server --requirepass \"$REDIS_PASSWORD\""]
-    env_file: .env
-    ports:
-      - '6379:6379'
-    volumes:
-      - 'redis:/data'
-
-  sidekiq:
-    depends_on:
-      - 'db'
-      - 'redis'
-    build: .
-    command: bundle exec sidekiq -e ${RAILS_ENV}
-    volumes:
-      - '.:/app'
-      - '/app/tmp' # don't mount tmp directory
-    environment:
-      - REDIS_URL_SIDEKIQ=redis://redis:6379/1
 
 volumes:
-  redis:
   postgres:

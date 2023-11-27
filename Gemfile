@@ -8,8 +8,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
 gem 'redis', '~> 4.0'
 gem 'bcrypt', '~> 3.1.7'
-gem 'jsonapi-serializer'
-gem 'sidekiq'
+# gem 'jsonapi-serializer'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem "slim-rails"
 gem 'pry', '~> 0.13.1'
