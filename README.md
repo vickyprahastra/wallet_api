@@ -24,14 +24,18 @@ Requirement
 6. docker-compose exec web rails db:setup
 7. docker-compose exec web rails db:seed
 
-### How to test
-1. ~
+## Documentation
 
+1. User login
+    - localhost:3000/login
+2. User logout
+    - localhost:3000/logout
 
-### Documentation
+### API
 
-User login
-1. localhost:3000/login
-
-API User login
-1. localhost:3000/api/session [POST]
+1. API user login
+    - localhost:3000/api/session [POST]
+    - user[username] user1
+    - user[password] password
+2. API user logout
+    - localhost:3000/api/session [DELETE]
