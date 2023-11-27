@@ -2,7 +2,7 @@ module Api
   class SessionsController < Api::ApiController
     before_action :authorized, only: [:new, :destroy]
 
-    def new
+    def show
       render json: {message: "welcome", balance: current_user.balance, username: current_user.username}
     end
 

@@ -27,15 +27,23 @@ Requirement
 ## Documentation
 
 1. User login
+
     - localhost:3000/login
+
 2. User logout
+
     - localhost:3000/logout
+
+3. User details
+
+    - localhost:3000
+
 
 ### API
 
 1. API user login
 
-    - localhost:3000/api/session [POST]
+    - [POST] localhost:3000/api/session
 
 | Keys            | Values         |
 | --------------- | -------------- |
@@ -43,4 +51,22 @@ Requirement
 | user[password]  | password       |
 
 2. API user logout
-    - localhost:3000/api/session [DELETE]
+
+    - [DELETE] localhost:3000/api/session
+
+3. API user transfer
+
+    - [POST] localhost:3000/api/transfer
+
+| Keys                      | Values     |
+| ------------------------- | ---------- |
+| transaction[receiver_id]  | user_id    |
+| transaction[amount]       | amount     |
+
+4. API user withdraw
+
+    - [POST] localhost:3000/api/withdraw
+
+| Keys                      | Values     |
+| ------------------------- | ---------- |
+| transaction[amount]       | amount     |

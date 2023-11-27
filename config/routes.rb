@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   resource :session, only: [:create]
 
   namespace :api do
-    get 'login',  to: 'sessions#new'
-    delete 'logout', to: 'sessions#destroy'
+    get     'user',  to: 'sessions#show'
+    delete  'logout', to: 'sessions#destroy'
     resource :session, only: [:create]
 
     post 'transfer', to: 'transactions#transfer'
