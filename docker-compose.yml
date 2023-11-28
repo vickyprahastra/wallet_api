@@ -11,8 +11,6 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      REDIS_URL_SIDEKIQ: redis://redis:6379/1
-      REDIS_PASSWORD: ABC2511
     depends_on:
       - 'db'
     build:

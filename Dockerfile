@@ -2,9 +2,6 @@ FROM ruby:3.0.3
 
 RUN apt-get update -qq
 
-ENV POSTGRES_USER=postgres
-ENV POSTGRES_PASSWORD=postgres
-
 RUN mkdir /app
 WORKDIR /app
 

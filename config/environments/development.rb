@@ -71,6 +71,10 @@ Rails.application.configure do
 
   ENV['RAILS_PORT']='3000'
   ENV['RAILS_ENV']='development'
+
   ENV['DATABASE_USERNAME']='postgres'
   ENV['DATABASE_PASSWORD']='postgres'
+
+  ENV['RAPID_API_KEY']='7725b22a9emsh3aedee7bea53acap12e080jsnb5cf47c73f24'
+  ENV['RAPID_API_HOST']='latest-stock-price.p.rapidapi.com'
 end
