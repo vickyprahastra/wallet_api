@@ -72,14 +72,14 @@ Requirement
 | transaction[amount]       | amount     |
 
 
-### Latest Stock Price
+### Custom library "Latest Stock Price"
 
-1. Run rails console
+1. run `rails console` or `docker-compose exec web rails console`
 
-2. load "#{Rails.root}/lib/latest_stock_price/client.rb"
+2. run `load "#{Rails.root}/lib/latest_stock_price/client.rb"`
 
-3. LatestStockPrice::Client.new.price("NIFTY%2050")
+3. run `LatestStockPrice::Client.new.price("NIFTY%2050")`
 
-  # indices value example = ["NIFTY%2050", "NIFTY%20NEXT%2050", "NIFTY%20100", "NIFTY%20500"]
+    - indices values "NIFTY%2050", "NIFTY%20NEXT%2050", "NIFTY%20100", "NIFTY%20500"
 
-4. LatestStockPrice::Client.new.price_all
+4. run `LatestStockPrice::Client.new.price_all`
